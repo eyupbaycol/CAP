@@ -1,0 +1,68 @@
+<mvc:View 
+	xmlns:viz="sap.viz.ui5.controls" 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:l= "sap.ui.layout"
+	displayBlock="true"
+	xmlns:viz.data = "sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	controllerName="anubhav.app.controller.Empty"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="I am an Empty View">
+				<content>
+					<l:BlockLayout background="Dashboard" visible="true" >
+						<l:content>
+							<l:BlockLayoutRow scrollable="false">
+								<l:content>
+									<l:BlockLayoutCell id="Cell1" width="1">
+										<l:content>
+											<viz:VizFrame id="idVizFrame1"  vizType="bar">
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{local>/data}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Country" value="{_id}"></viz.data:DimensionDefinition>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Count" value="{count}"></viz.data:MeasureDefinition>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem id="valueAxisFeedBar" uid="valueAxis" type="Measure" values="Count"></viz.feeds:FeedItem>
+													<viz.feeds:FeedItem id="categoryAxisFedbar" uid="categoryAxis" type="Dimension" values="Country"></viz.feeds:FeedItem>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+									<l:BlockLayoutCell id="Cell2" width="1">
+										<l:content>
+											<viz:VizFrame id="idVizFrame2" vizType="donut">
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{local>/data}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Country" value="{_id}"></viz.data:DimensionDefinition>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Count" value="{count}"></viz.data:MeasureDefinition>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem id="valueAxisFeedPie" uid="size" type="Measure" values="Count"></viz.feeds:FeedItem>
+													<viz.feeds:FeedItem id="categoryAxisFedPie" uid="color" type="Dimension" values="Country"></viz.feeds:FeedItem>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+								</l:content>
+							</l:BlockLayoutRow>
+						</l:content>
+					</l:BlockLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

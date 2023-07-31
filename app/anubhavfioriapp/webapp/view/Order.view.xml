@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" controllerName="anubhav.app.controller.Order"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="View 1">
+		<content>
+        <VBox class="sapUiSmallMargin">
+                <f:Form id="FormDisplay354">
+			<f:title>
+				<core:Title text="Create New Order" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Order Category">
+							<f:fields>
+								<ComboBox items="{/category}" change="getItemByCategory" selectedKey="{local>/orderData/orderCategory}">
+                                   <core:Item key="{categoryCode}" text="{categoryName}"  />
+                                </ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Order Item">
+							<f:fields>
+								<ComboBox items="{local>/categoryItems}" selectedKey="{local>/orderData/orderCategoryItem}">
+                                   <core:Item key="{local>id}" text="{local>categoryItemName}"  />
+                                </ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Order Price">
+							<f:fields>
+								<Input value="{local>/orderData/orderPrice}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Order Piece">
+							<f:fields>
+								<Input value="{local>/orderData/orderPiece}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        </VBox>
+		</content>
+        <footer>
+            <Toolbar>
+            <ToolbarSpacer></ToolbarSpacer>
+                <Button id="idSave" text="CreateOrder" icon="sap-icon://save" press="createOrder"></Button>
+            </Toolbar>
+        </footer>
+	</Page>
+
+</mvc:View>

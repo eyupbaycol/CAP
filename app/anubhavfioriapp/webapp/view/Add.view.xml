@@ -1,0 +1,82 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" controllerName="anubhav.app.controller.Add"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="View 1">
+		<content>
+        <VBox class="sapUiSmallMargin">
+                <f:Form id="FormDisplay354">
+			<f:title>
+				<core:Title text="Create New Product" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Company Name">
+							<f:fields>
+								<Input value="{local>/customerData/companyName}" id="nameInput"  />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Contact Name">
+							<f:fields>
+								<Input value="{local>/customerData/name}" showValueHelp="true" valueHelpRequest="onSupplierF4" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Type">
+							<f:fields>
+								<Input value="{local>/customerData/type}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Email Id">
+							<f:fields>
+								<Input value="{local>/customerData/emailId}"/>
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement label="Address/Contact">
+							<f:fields>
+								<Input value="{local>/customerData/address}"/>
+                                <Input value="{local>/customerData/contactNo}">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement label="Country">
+							<f:fields>
+								<Select items="{/country}" selectedKey="{local>/customerData/country}">
+                                   <core:Item key="{countryCode}" text="{countryName}"  />
+                                </Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        </VBox>
+		</content>
+        <footer>
+            <Toolbar>
+            <ToolbarSpacer></ToolbarSpacer>
+                <Button id="idSave" text="Save" icon="sap-icon://save" press="onSave"></Button>
+                <Button id="idDelete" text="Delete" icon="sap-icon://delete" type="Reject" press="onDelete"></Button>
+                <Button id="idClear" text="Clear"  press="onClear" type="Emphasized"></Button>
+            </Toolbar>
+        </footer>
+	</Page>
+
+</mvc:View>
